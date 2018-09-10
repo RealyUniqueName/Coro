@@ -1,0 +1,14 @@
+{
+	"name"         : "coro",
+	"url"          : "https://github.com/RealyUniqueName/Coro",
+	"license"      : "MIT",
+	"tags"         : ["coroutine", "async", "await", "yield", "generator", "asynchronous"],
+	"description"  : "Null safety for Haxe.",
+	"version"      : "0.1.0",
+	"releasenote"  : "Initial release",
+	"classPath"    : "src/hx",
+	"contributors" : ["RealyUniqueName"],
+	"dependencies" : {
+		"exception": ""
+	}
+}

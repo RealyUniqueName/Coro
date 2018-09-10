@@ -1,0 +1,10 @@
+-cp src/hx
+-cp tests
+-lib exception
+-lib utest
+-dce full
+-main Tests
+-debug
+-D analyzer-optimize
+
+extraParams.hxml

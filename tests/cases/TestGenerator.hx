@@ -1,0 +1,45 @@
+package cases;
+
+import coro.Generator;
+import utest.Assert;
+import coro.Generator.*;
+
+class TestGenerator extends TransformCase {
+
+	public function testYield() {
+		var generator = new Generator<Int>(yield -> {
+			yield(10);
+			yield(20);
+		});
+		var result = [for(i in generator) i];
+
+		Assert.same([10, 20], result);
+	}
+
+	public function testYieldAll() {
+		var generator = new Generator<Int>(yield -> {
+			yieldAll([10, 20]);
+		});
+		var result = [for(i in generator) i];
+
+		Assert.same([10, 20], result);
+	}
+
+	public function testFib() {
+		for(n in fibonacci(6)) {
+			markers.push(n);
+		}
+		Assert.same([1, 1, 2, 3, 5, 8], markers);
+	}
+
+	static function fibonacci(iterations:Int) return new Generator<Int>(yield -> {
+		var current = 1;
+		var previous = 0;
+		while(iterations-- > 0) {
+			yield(current);
+			var next = current + previous;
+			previous = current;
+			current = next;
+		}
+	});
+}

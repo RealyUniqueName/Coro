@@ -151,7 +151,7 @@ function greet() return new Dialog(() -> {
 });
 ```
 
-See https://github.com/RealyUniqueName/Coro/blob/master/test/cases/TestDialogExample.hx
+See https://github.com/RealyUniqueName/Coro/blob/master/tests/cases/TestDialogExample.hx#L10
 
 # Implementation details
 

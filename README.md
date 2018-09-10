@@ -20,7 +20,7 @@ Now to use Coro all you need to do is to add `-lib coro` to your compilation fla
 # Generator
 
 ```haxe
-import coro.Generator
+import coro.Generator;
 
 class Test {
 	static public function main() {
@@ -85,6 +85,8 @@ class Test {
 Pipe is the coroutine, which allows two-way communication between the coroutine caller and the coroutine itself.
 
 ```haxe
+import coro.Pipe;
+
 class Test {
 	static public function main() {
 		var repl = getRepl();

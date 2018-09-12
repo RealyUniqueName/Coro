@@ -4,7 +4,7 @@ import coro.Generator;
 import utest.Assert;
 import coro.Generator.*;
 
-class TestGenerator extends TransformCase {
+class TestGenerator extends BaseCase {
 
 	public function testYield() {
 		var generator = new Generator<Int>(yield -> {
@@ -26,10 +26,11 @@ class TestGenerator extends TransformCase {
 	}
 
 	public function testFib() {
+		var result = [];
 		for(n in fibonacci(6)) {
-			markers.push(n);
+			result.push(n);
 		}
-		Assert.same([1, 1, 2, 3, 5, 8], markers);
+		Assert.same([1, 1, 2, 3, 5, 8], result);
 	}
 
 	static function fibonacci(iterations:Int) return new Generator<Int>(yield -> {

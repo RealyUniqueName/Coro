@@ -4,7 +4,7 @@ import coro.Async;
 import utest.Assert;
 import haxe.Timer;
 
-class TestAsync extends TransformCase {
+class TestAsync extends BaseCase {
 	public function testDelay() {
 		var delayMs = 50;
 		var startTime = Timer.stamp();

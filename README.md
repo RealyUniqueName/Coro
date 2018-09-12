@@ -80,6 +80,34 @@ class Test {
 }
 ```
 
+### Awaiting ES6 promises
+
+```haxe
+using coro.Async;
+
+function greet(promise:js.Promise<String>) return new Async(() -> {
+	var name = promise.await();
+	trace('Hello, $name!');
+});
+```
+
+### Converting Async to ES6 promise
+
+```haxe
+using coro.Async;
+
+function delayGreet(name:String):Promise<String> {
+	var async = new AsyncValue<String>(() -> {
+		Async.delay(1000).await();
+		return name;
+	});
+
+	//convert coroutine to promise
+	return async.promise();
+}
+```
+
+
 # Pipe
 
 Pipe is the coroutine, which allows two-way communication between the coroutine caller and the coroutine itself.

@@ -4,6 +4,10 @@ import coro.Coroutine;
 
 class AsyncException extends haxe.Exception {}
 
+#if js
+typedef PromiseAsync = coro.async.PromiseAsync;
+#end
+
 @:access(coro.Async)
 abstract AsyncValue<T>(Async) to Async {
 	@:from

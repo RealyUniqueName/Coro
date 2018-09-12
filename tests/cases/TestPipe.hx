@@ -3,7 +3,7 @@ package cases;
 import coro.Pipe;
 import utest.Assert;
 
-class TestPipe extends TransformCase {
+class TestPipe extends BaseCase {
 
 	public function testReplExample() {
 		var repl = new Pipe(yield -> {

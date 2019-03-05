@@ -1908,8 +1908,8 @@ class plugin =
 			if not executed then begin
 				executed <- true;
 				let compiler = (get_ctx()).curapi in
-				let com = compiler.get_com() in
-				add_typing_filter com (fun types ->
+				(* let com = compiler.get_com() in *)
+				compiler.after_typing (fun types ->
 					let t = Timer.timer ["plugin"; "coro"] in
 					let coro_types = self#find_coro_types compiler.typer_ctx types in
 					let process_field field =

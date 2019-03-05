@@ -1,3 +1,4 @@
+import haxe.PosInfos;
 #if macro
 import haxe.macro.PositionTools;
 import haxe.macro.Context;
@@ -34,8 +35,8 @@ class Coro {
 	}
 
 	static public function getPluginPath():String {
-		var pos = Context.getPosInfos(PositionTools.here());
-		var srcDir = pos.file.directory().directory();
+		var pos = (function(?p:PosInfos) return p)();
+		var srcDir = pos.fileName.directory().directory();
 		var path = Path.join([srcDir, 'ml', 'coro_plugin.cmxs']); //development path
 		//if development binary does not exist, use pre built one
 		if(!path.exists()) {
